@@ -1,6 +1,6 @@
 # koa
 
-### git clone git@github.com:Guohjia/koa.git
+### git clone
 
 ### npm install
 
