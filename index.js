@@ -16,20 +16,31 @@ const util = require('util');
 //   console.log(err)
 // })
 
+//co +Generator Function + Promise
+const co = require('co');
+
+co(function *(){
+  let data = yield util.promisify(fs.readFile)('./package.json')
+
+  data = JSON.parse(data)
+
+  console.log(data.name)
+})
+
 
 //async => ES7 写起来的感觉像同步
-async function init(params) {
-  try{
-    let data = await util.promisify(fs.readFile)('./package.json');
-    data = JSON.parse(data);
-    console.log(data.name)
-  } catch (err) {
-    console.log(err)
-  }
-}
+// async function init(params) {
+//   try{
+//     let data = await util.promisify(fs.readFile)('./package.json');
+//     data = JSON.parse(data);
+//     console.log(data.name)
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
 
 
-init()
+// init()
 
 
 
